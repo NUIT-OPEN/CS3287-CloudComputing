@@ -2,6 +2,29 @@
 
 * 虚拟化实验
 
+## 环境准备
+
+* 软件下载
+  * [ESXi](https://www.vmware.com/go/CN-get-esxi)
+  * [Ubuntu](https://mirrors.aliyun.com/ubuntu-releases)（可选，建议20.04）
+
+### 安装ESXi环境
+
+* 使用**VMware Workstation/Fusion**，选中下载下来的**ESXi**镜像安装即可。
+
+### 安装KVM环境（Ubuntu）
+
+> 使用GUI管理界面，省事。
+
+* 首先执行以下指令，以安装配置环境。
+
+```bash
+sudo apt install virt-manager
+sudo chmod 777 /var/run/libvirt/libvirt-sock
+```
+
+* 完成后使用**Virtual Machine Manager**随便安装一个虚拟机即可。
+
 ## QEMU-KVM虚拟机镜像制作
 
 * virsh
@@ -68,3 +91,5 @@ ubuntu@ubuntu:~$
 * 步骤
   * 配置交换机VLAN，及Trunk模式
   * Trunk端口桥接ESXI主机上联网卡
+
+> 不嫌麻烦的可以尝试一下

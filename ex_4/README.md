@@ -76,10 +76,10 @@ root@8dd5ee0bcb9f:/#
 
 * 创建目录并编写Dockerfile
 
-```bash
-mkdir mytomcat
-cd mytomcat
-vi Dockerfile
+```log
+user@ubuntu:~$ mkdir mytomcat
+user@ubuntu:~$ cd mytomcat
+user@ubuntu:~$ vi Dockerfile
 ```
 
 * 输入以下内容
@@ -104,9 +104,9 @@ CMD ["/usr/libexec/tomcat9/tomcat-start.sh"]
 
 * 构建镜像并启动
 
-```bash
-docker build -t mytomcat
-docker run -itd -p 8080:8080 mytomcat
+```log
+user@ubuntu:~$ sudo docker build -t mytomcat
+user@ubuntu:~$ sudo docker run -itd -p 8080:8080 mytomcat
 ```
 
 * 使用浏览器访问```http://localhost:8080```
@@ -115,4 +115,25 @@ docker run -itd -p 8080:8080 mytomcat
 It works !
 If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!
 ...以下省略若干行...
+```
+
+## Docker push 上传镜像到hub
+
+```log
+user@ubuntu:~$ docker image tag mytomcat <username>/mytomcat
+user@ubuntu:~$ docker login
+Authenticating with existing credentials...
+Login Succeeded
+user@ubuntu:~$ docker push <username>/mytomcat
+Using default tag: latest
+The push refers to repository [docker.io/<username>/mytomcat]
+03cadf0b22ee: Layer already exists 
+3532988927e9: Pushed 
+bab88698ffd1: Layer already exists 
+681fe901ea94: Layer already exists 
+1e97ae628c6a: Pushed 
+c43d052db5a4: Layer already exists 
+350f36b271de: Pushed 
+latest: digest: sha256:c40e7ed8e36d393c8900c4221924abce92b9786ec9386142925fde83086ca8af size: 1790
+user@ubuntu:~$ 
 ```

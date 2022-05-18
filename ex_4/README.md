@@ -105,7 +105,7 @@ CMD ["/usr/libexec/tomcat9/tomcat-start.sh"]
 * 构建镜像并启动
 
 ```log
-user@ubuntu:~$ sudo docker build -t mytomcat
+user@ubuntu:~$ sudo docker build -t mytomcat .
 user@ubuntu:~$ sudo docker run -itd -p 8080:8080 mytomcat
 ```
 
